@@ -132,11 +132,11 @@ callbacks.Register("Draw", function()
 
 
   if not game_in_progress then
-    local chars = draw.AwesomeText(screenW * 0.30, screenH * 0.10, "Begin space typing to start", start_game_font)
+    local chars = draw.AwesomeText(screenW * 0.30, screenH * 0.10, "Press space typing to start", start_game_font)
     for k, char in pairs(chars) do
       draw.Color(255,255,255)
 
-      if char.text == "B" then
+      if char.text == "P" then
         draw.Color(255,0,0)
       end
       char.draw()
