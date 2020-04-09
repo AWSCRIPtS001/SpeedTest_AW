@@ -122,7 +122,7 @@ callbacks.Register("Draw", function()
   for k, char in pairs(chars) do
     draw.Color(255,255,255)
     if char.text ~= "W" and char.text ~= "P" and char.text ~= "M" and char.text ~= ":" and char.text ~= " " then
-      draw.Color(0,255,0, 55)
+      draw.Color(0,255,0, 255)
     end
     char.draw()
   end
