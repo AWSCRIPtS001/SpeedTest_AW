@@ -3,7 +3,7 @@ local correct_words_label =  gui.Text( SpeedTest, 'Correct words: 0')
 local incorrect_words_label =  gui.Text( SpeedTest, 'Incorrect words: 0')
 local wpm_label =  gui.Text( SpeedTest, 'WPM: 0')
 
-local minutes_slider = gui.Slider( SpeedTest, "speedtest.slider", "Amount of minutes to for", 1, 1, 30 )
+local minutes_slider = gui.Slider( SpeedTest, "speedtest.slider", "Amount of minutes", 1, 1, 30 )
 
 local user_input = gui.Editbox( SpeedTest, "SpeedTest.input", '')
 
