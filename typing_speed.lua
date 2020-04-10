@@ -3,7 +3,7 @@ local correct_words_label =  gui.Text( SpeedTest, 'Correct words: 0')
 local incorrect_words_label =  gui.Text( SpeedTest, 'Incorrect words: 0')
 local wpm_label =  gui.Text( SpeedTest, 'WPM: 0')
 
-local minutes_slider = gui.Slider( SpeedTest, "speedtest.slider", "Amount of minutes", 1, 1, 30 )
+local minutes_slider = gui.Slider( SpeedTest, "speedtest.slider", "Amount of minutes to for", 1, 1, 30 )
 
 local user_input = gui.Editbox( SpeedTest, "SpeedTest.input", '')
 
@@ -93,8 +93,18 @@ local game_end_time = 0
 local number_of_correct_words = 0
 local number_of_incorrect_words = 0
 -- Number_of_keystroke / time_in_second * 60 * percentages_of_accurate_word
+local paused = true
 
 callbacks.Register("Draw", function()
+
+
+  if input.IsButtonPressed(gui.GetValue("adv.menukey")) then
+      paused = not paused;
+  end
+
+  if not paused then
+      return
+  end
 
   if user_input:GetValue() ~= old_user_input then
     total_chars_entered = total_chars_entered + 1
@@ -151,9 +161,12 @@ callbacks.Register("Draw", function()
       total_words_submitted = 0
       total_chars_entered = 0
 
-    end
+      end
     return
   end
+
+
+
   draw.SetFont(start_game_font)
   draw.Text(screenW * 0.39, screenH * 0.085, math.floor(globals.CurTime() - game_start_time))
   draw.SetFont(text_font)
